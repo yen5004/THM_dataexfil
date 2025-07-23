@@ -204,3 +204,5 @@ To confirm that all communications go through the ICMP protocol, we capture the 
 
 *Capture ICMP traffic using tcpdump:*
 <img width="787" height="225" alt="image" src="https://github.com/user-attachments/assets/1406022d-cbb3-4552-ad58-bb1dd2ca5eab" />
+
+4a54543a70617373776f72640a
