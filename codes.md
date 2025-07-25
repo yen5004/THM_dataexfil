@@ -450,4 +450,45 @@ Or save as a file for analysis.
 
 Let me know if you want to extract only the ICMP **payloads**, not the entire packet — I can tailor a script to do just that from the `tcpdump` text.
 
+---
+
+To run your `tcpdump` command and write the output to a file in Kali Linux, you can redirect the output to a file or use the `-w` option depending on the format you want:
+
+---
+
+### **Option 1: Human-readable format (with `-X` and redirection)**
+
+If you want to save the **textual (human-readable)** output of `tcpdump -X` (including hex and ASCII), redirect it like this:
+
+```bash
+sudo tcpdump -i eth0 icmp -X > icmp_dump.txt
+```
+
+* This saves the output to a file called `icmp_dump.txt`.
+* You can also append (`>>`) instead of overwrite (`>`) if you want to keep old data.
+
+---
+
+### **Option 2: Raw packet capture (binary format for Wireshark)**
+
+If you want to save the capture to a **file for later analysis** in Wireshark or similar tools, use `-w`:
+
+```bash
+sudo tcpdump -i eth0 icmp -w icmp_capture.pcap
+```
+
+* This writes a `.pcap` file you can open with `wireshark` or `tshark`.
+* This format **does not include** the hex/ascii (`-X`) representation — it’s raw packet data.
+
+---
+
+### Bonus: Run and view output at the same time
+
+If you want to **view** packets live and also **save them**, use `tee`:
+
+```bash
+sudo tcpdump -i eth0 icmp -X | tee icmp_dump.txt
+```
+
+Let me know if you want to automate or filter it further (like with timestamps or specific hosts).
 
